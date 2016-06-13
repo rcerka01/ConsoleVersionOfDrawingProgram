@@ -1,0 +1,23 @@
+[0m[[0minfo[0m] [0m[32mCanvasTest:[0m[0m
+[0m[[0minfo[0m] [0m[32misCanvasDefinedService for undefined canvas[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'false'[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'true' if canvas is defined[0m[0m
+[0m[[0minfo[0m] [0m[32mgetCanvasSizeService[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return correct size for defined canvas[0m[0m
+[0m[[0minfo[0m] [0m[32mcreateCanvasService[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return a new empty canvas of given coordinates plus border[0m[0m
+[0m[[0minfo[0m] [0m[32m- should have first and last row containing only '-' symbol[0m[0m
+[0m[[0minfo[0m] [0m[32m- should have '|' symbol at first and last index of each row[0m[0m
+[0m[[0minfo[0m] [0m[32maddLineServicee[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas with added horizontal line in terms of 'x' symbol within its x,y coordinates[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas with added vertical line in terms of 'x' symbol within its x,y coordinates[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return dot (one symbol) if all coordinates are equal[0m[0m
+[0m[[0minfo[0m] [0m[32maddRectangleService[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas with added rectangle in terms of 'x' symbol within perimeter of its x,y coordinates[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return dot (one symbol) if all coordinates are equal[0m[0m
+[0m[[0minfo[0m] [0m[32maddFillService[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas with changed surrounded surface symbols by symbol provided (bucket)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas and line with changed surrounded surface symbols, by symbol provided (bucket)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas and line and rectangle with changed surrounded surface symbols, by symbol provided (bucket)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas and line and rectangle with changed surface on the connected lines symbols, by symbol provided (bucket)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return existing canvas and line and rectangle with changed close surface inside rectangle, by symbol provided (bucket)[0m[0m

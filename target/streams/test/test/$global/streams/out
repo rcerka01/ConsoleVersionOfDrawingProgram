@@ -1,0 +1,10 @@
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.springer.graffiti.test.CanvasTest, org.scalatest.tools.Framework$$anon$1@6b7465e5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.springer.graffiti.test.CommandValidationTest, org.scalatest.tools.Framework$$anon$1@6b7465e5, false, [SuiteSelector])[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 2 seconds, 50 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 48[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 2, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 48, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0mdebug[0m] [0mPassed tests:[0m
+[0m[[0mdebug[0m] [0m	com.springer.graffiti.test.CommandValidationTest[0m
+[0m[[0mdebug[0m] [0m	com.springer.graffiti.test.CanvasTest[0m
