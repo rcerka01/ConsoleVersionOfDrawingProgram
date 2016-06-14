@@ -90,7 +90,7 @@ class CanvasTest extends UnitSpec {
 
   "addLineServicee" should "return existing canvas with added horizontal line in terms of 'x' symbol within its x,y coordinates" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    val canvas = CanvasServices.addLineService(Array("L", "2", "2", "3", "2"))
+    val canvas = CanvasServices.addElementService(Array("L", "2", "2", "3", "2"))
     val canvasArray = canvas.exportToPrint
 
     val expectedLength: Int = 2
@@ -116,7 +116,7 @@ class CanvasTest extends UnitSpec {
 
   it should "return existing canvas with added vertical line in terms of 'x' symbol within its x,y coordinates" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    val canvas = CanvasServices.addLineService(Array("L", "2", "2", "2", "4"))
+    val canvas = CanvasServices.addElementService(Array("L", "2", "2", "2", "4"))
     val canvasArray = canvas.exportToPrint
 
     val expectedLength: Int = 3
@@ -140,7 +140,7 @@ class CanvasTest extends UnitSpec {
 
   it should "return dot (one symbol) if all coordinates are equal" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    val canvas = CanvasServices.addLineService(Array("L", "2", "2", "2", "2"))
+    val canvas = CanvasServices.addElementService(Array("L", "2", "2", "2", "2"))
     val canvasArray = canvas.exportToPrint
 
     val expectedLength: Int = 1
@@ -164,7 +164,7 @@ class CanvasTest extends UnitSpec {
 
   "addRectangleService" should "return existing canvas with added rectangle in terms of 'x' symbol within perimeter of its x,y coordinates" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    val canvas = CanvasServices.addRectangleService(Array("R", "2", "3", "4", "5"))
+    val canvas = CanvasServices.addElementService(Array("R", "2", "3", "4", "5"))
     val canvasArray = canvas.exportToPrint
 
 
@@ -258,7 +258,7 @@ class CanvasTest extends UnitSpec {
 
   it should "return dot (one symbol) if all coordinates are equal" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    val canvas = CanvasServices.addRectangleService(Array("R", "2", "2", "2", "2"))
+    val canvas = CanvasServices.addElementService(Array("R", "2", "2", "2", "2"))
     val canvasArray = canvas.exportToPrint
 
     val expectedLength: Int = 1
@@ -282,7 +282,7 @@ class CanvasTest extends UnitSpec {
 
   "addFillService" should "return existing canvas with changed surrounded surface symbols by symbol provided (bucket)" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    val canvas = CanvasServices.addFillService(Array("B", "1", "1", "c"))
+    val canvas = CanvasServices.addElementService(Array("B", "1", "1", "c"))
     val canvasArray = canvas.exportToPrint
 
     val expectedAmount: Int = 20
@@ -300,8 +300,8 @@ class CanvasTest extends UnitSpec {
 
   it should "return existing canvas and line with changed surrounded surface symbols, by symbol provided (bucket)" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    CanvasServices.addLineService(Array("L", "2", "1","2", "2"))
-    val canvas = CanvasServices.addFillService(Array("B", "1", "1", "c"))
+    CanvasServices.addElementService(Array("L", "2", "1","2", "2"))
+    val canvas = CanvasServices.addElementService(Array("B", "1", "1", "c"))
     val canvasArray = canvas.exportToPrint
 
     val expectedAmount: Int = 18
@@ -319,9 +319,9 @@ class CanvasTest extends UnitSpec {
 
   it should "return existing canvas and line and rectangle with changed surrounded surface symbols, by symbol provided (bucket)" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    CanvasServices.addLineService(Array("L", "2", "1","2", "2"))
-    CanvasServices.addRectangleService(Array("R", "2", "2","4", "4"))
-    val canvas = CanvasServices.addFillService(Array("B", "1", "1", "c"))
+    CanvasServices.addElementService(Array("L", "2", "1","2", "2"))
+    CanvasServices.addElementService(Array("R", "2", "2","4", "4"))
+    val canvas = CanvasServices.addElementService(Array("B", "1", "1", "c"))
     val canvasArray = canvas.exportToPrint
 
     val expectedAmount: Int = 8 // left and bottom side only
@@ -339,9 +339,9 @@ class CanvasTest extends UnitSpec {
 
   it should "return existing canvas and line and rectangle with changed surface on the connected lines symbols, by symbol provided (bucket)" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    CanvasServices.addLineService(Array("L", "2", "1","2", "2"))
-    CanvasServices.addRectangleService(Array("R", "2", "2","4", "4"))
-    val canvas = CanvasServices.addFillService(Array("B", "2", "1", "c"))
+    CanvasServices.addElementService(Array("L", "2", "1","2", "2"))
+    CanvasServices.addElementService(Array("R", "2", "2","4", "4"))
+    val canvas = CanvasServices.addElementService(Array("B", "2", "1", "c"))
     val canvasArray = canvas.exportToPrint
 
     val expectedAmount: Int = 9
@@ -360,9 +360,9 @@ class CanvasTest extends UnitSpec {
 
   it should "return existing canvas and line and rectangle with changed close surface inside rectangle, by symbol provided (bucket)" in {
     CanvasServices.createCanvasService(Array("C", "4", "5"))
-    CanvasServices.addLineService(Array("L", "2", "1","2", "2"))
-    CanvasServices.addRectangleService(Array("R", "2", "2","4", "4"))
-    val canvas = CanvasServices.addFillService(Array("B", "3", "3", "c"))
+    CanvasServices.addElementService(Array("L", "2", "1","2", "2"))
+    CanvasServices.addElementService(Array("R", "2", "2","4", "4"))
+    val canvas = CanvasServices.addElementService(Array("B", "3", "3", "c"))
     val canvasArray = canvas.exportToPrint
 
     val expectedAmount: Int = 1

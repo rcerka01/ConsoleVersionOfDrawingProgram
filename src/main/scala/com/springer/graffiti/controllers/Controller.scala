@@ -24,7 +24,7 @@ object CommandController extends Controller {
 
   def addLine(command: Array[String]) = {
     if (CommandValidationServices.isValidCommandAddLine(command)) {
-      val canvas = CanvasServices.addLineService(command)
+      val canvas = CanvasServices.addElementService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
       Input.run("Enter a new command or 'Q' to exit:")
     } else {
@@ -35,7 +35,7 @@ object CommandController extends Controller {
 
   def addRectangle(command: Array[String]) = {
     if (CommandValidationServices.isValidCommandAddRectangle(command)) {
-      val canvas = CanvasServices.addRectangleService(command)
+      val canvas = CanvasServices.addElementService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
       Input.run("Enter a new command or 'Q' to exit:")
     } else {
@@ -45,7 +45,7 @@ object CommandController extends Controller {
 
   def addFill(command: Array[String]) = {
     if (CommandValidationServices.isValidCommandAddFill(command)) {
-      val canvas = CanvasServices.addFillService(command)
+      val canvas = CanvasServices.addElementService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
       Input.run("Enter a new command or 'Q' to exit:")
     } else {

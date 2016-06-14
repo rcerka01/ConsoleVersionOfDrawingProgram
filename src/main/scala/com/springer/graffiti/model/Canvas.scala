@@ -7,9 +7,7 @@ case class Line(x1: Int, y1: Int, x2: Int, y2: Int)
 case class Rectangle(x1: Int, y1: Int, x2: Int, y2: Int)
 case class Fill(x: Int, y: Int, c: Char)
 
-
-case class Canvas(x: Int, y: Int, lines: Seq[Line], rectangles: Seq[Rectangle], fills: Seq[Fill]) {
-
+case class Canvas(x: Int, y: Int, commands: List[Array[String]]) {
 
   private val HORIZONTAL_BORDER = '-'
   private val VERTICAL_BORDER = '|'
@@ -33,9 +31,12 @@ case class Canvas(x: Int, y: Int, lines: Seq[Line], rectangles: Seq[Rectangle], 
   }
 
   // load canvas elements
-  lines.foreach(addLine(_))
-  rectangles.foreach(addRectangle(_))
-  fills.foreach(addFill(_))
+  commands.foreach( command => command(0) match {
+    case "L" => addLine(Line(command(1).toInt, command(2).toInt, command(3).toInt, command(4).toInt))
+    case "R" => addRectangle(Rectangle(command(1).toInt, command(2).toInt, command(3).toInt, command(4).toInt))
+    case "B" => addFill(Fill(command(1).toInt, command(2).toInt, command(3).head))
+    case _   => println("Unknown error.")
+  })
 
 
   def addFill(fill: Fill): Unit = {
