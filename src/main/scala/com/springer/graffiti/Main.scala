@@ -1,44 +1,43 @@
 package com.springer.graffiti
 
+import com.springer.graffiti.model.Error
 import com.springer.graffiti.services.CommandValidationServices
+import com.springer.graffiti.view.CanvasOutput
+
 import scala.io.StdIn._
 
 /**
   * Created by raitis on 09/06/2016.
   */
-object Input {
+object Input extends App {
 
 
-  def  validateCommand(command: Array[String]): Unit = {
+  def run(title: String)(implicit error: Error): Unit = {
 
-    if (CommandValidationServices.isValidCommand(command))
-      Router.runCommand(command)
-    else
-      run("Incorrect command, try again or enter 'Q' to exit:")
+    if (error != null) {
+      CanvasOutput.printErrorMessage(error)
+      run("Enter a new command or 'Q' to exit:")(null)
+    }
 
-  }
+    else {
+      CanvasOutput.printMessage(title)
 
+      val command: Array[String] = readLine().split(" ")
 
-  def run(title: String): Unit = {
+      implicit val isValidCommand: Error = CommandValidationServices.isValidCommand(command)
 
-    println(title)
-
-    val command: Array[String] = readLine().split(" ")
-    val commandMarshal = command(0)
-
-    commandMarshal match {
-      case "Q" => println("Goodbye!")
-      case _   => validateCommand(command)
+      if (isValidCommand != null) {
+        run("Enter a new command or 'Q' to exit:")(isValidCommand)
+      }
+      else {
+        Router.runCommand(command)
+      }
     }
 
   }
 
 
-}
-
-
-object Main extends App {
-
-  Input.run("Enter a command:")
+  // start
+  run("Enter a command:")(null)
 
 }

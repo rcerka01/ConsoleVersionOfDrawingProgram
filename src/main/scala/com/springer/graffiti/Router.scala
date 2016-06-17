@@ -1,6 +1,8 @@
 package com.springer.graffiti
 
 import com.springer.graffiti.controllers.CommandController
+import com.springer.graffiti.model.Error
+import com.springer.graffiti.view.CanvasOutput
 
 /**
   * Created by raitis on 08/06/2016.
@@ -22,7 +24,9 @@ object Router {
 
       case "B" => CommandController.addFill(command)
 
-      case _   => println("Unknown error, goodbye.")
+      case "Q" => CommandController.terminate("Goodbye!")
+
+      case _   => CanvasOutput.printErrorMessage(Error("Unknown error, system stop"))
 
     }
 

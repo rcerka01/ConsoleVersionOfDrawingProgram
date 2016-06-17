@@ -1,38 +1,38 @@
 [0m[[0minfo[0m] [0m[32mCommandValidationTest:[0m[0m
 [0m[[0minfo[0m] [0m[32misValidCommand service[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the command array first element is 'C'[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the command array first element is not defined as 'ALLOWED_COMMANDS'[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the command array first element is 'C'[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the command array first element is not defined as 'ALLOWED_COMMANDS'[0m[0m
 [0m[[0minfo[0m] [0m[32misValidCommandCreateCanvas service[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the command array first element is 'C' and it has 2 positive size parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Create Canvas' command has to many parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Create Canvas' command has to few parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Create Canvas' command has malformed parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the 'Create Canvas' command has minimal size 0x0[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Create Canvas' command has negative canvas size[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the command array first element is 'C' and it has 2 positive size parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Create Canvas' command has to many parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Create Canvas' command has to few parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Create Canvas' command has malformed parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the 'Create Canvas' command has minimal size 0x0[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Create Canvas' command has negative canvas size[0m[0m
 [0m[[0minfo[0m] [0m[32misValidCommandAddLine service[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if canvas is not defined[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the command array first element is 'L' and it has 4 positive size parameters, where 1st and 3rd or 2nd and 4th must be equal, and canvas is defined[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Line' command has to many parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Line' command has to few parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Line' command has malformed parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Line' command do not have horizontal or vertical coordinates[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Line' command coordinates are out of canvas[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the 'Add Line' is a dot[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if canvas is not defined[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the command array first element is 'L' and it has 4 positive size parameters, where 1st and 3rd or 2nd and 4th must be equal, and canvas is defined[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Line' command has to many parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Line' command has to few parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Line' command has malformed parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Line' command do not have horizontal or vertical coordinates[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Line' command coordinates are out of canvas[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the 'Add Line' is a dot[0m[0m
 [0m[[0minfo[0m] [0m[32misValidCommandAddRectangle service[0m[0m
 [0m[[0minfo[0m] [0m[32m- should return 'false' if canvas is not defined[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the command array first element is 'R' and it has 4 positive size parameters, where x1 < x2 and y1 < y2, and canvas is defined[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Rectangle' command has to many parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Rectangle' command has to few parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Rectangle' command has malformed parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Rectangle' command has right corner before left[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Rectangle' command has bottom corner above top[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Rectangle' command coordinates are out of canvas[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the 'Add Rectangle' command has all coordinates equal (dot)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the command array first element is 'R' and it has 4 positive size parameters, where x1 < x2 and y1 < y2, and canvas is defined[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Rectangle' command has to many parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Rectangle' command has to few parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Rectangle' command has malformed parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Rectangle' command has right corner before left[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Rectangle' command has bottom corner above top[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Error' if the 'Add Rectangle' command coordinates are out of canvas[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the 'Add Rectangle' command has all coordinates equal (dot)[0m[0m
 [0m[[0minfo[0m] [0m[32misValidCommandAddFill service[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if canvas is not defined[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'true' if the command array first element is 'F' and it has 2 positive x and y coordinates, symbol to fill and canvas is defined[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Fill' command has to many parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Fill' command has to few parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Fill' command has malformed parameters[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Fill' command coordinates are out of canvas[0m[0m
-[0m[[0minfo[0m] [0m[32m- should return 'false' if the 'Add Fill' command has more than one symbol[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Eroor' if canvas is not defined[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'null' if the command array first element is 'F' and it has 2 positive x and y coordinates, symbol to fill and canvas is defined[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Eroor' if the 'Add Fill' command has to many parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Eroor' if the 'Add Fill' command has to few parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Eroor' if the 'Add Fill' command has malformed parameters[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Eroor' if the 'Add Fill' command coordinates are out of canvas[0m[0m
+[0m[[0minfo[0m] [0m[32m- should return 'Eroor' if the 'Add Fill' command has more than one symbol[0m[0m

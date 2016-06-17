@@ -1,9 +1,10 @@
 package com.springer.graffiti.test
 
+import com.springer.graffiti.services.CanvasServices
+
 /**
   * Created by raitis on 10/06/2016.
   */
-import com.springer.graffiti.services.CanvasServices
 
 
 class CanvasTest extends UnitSpec {

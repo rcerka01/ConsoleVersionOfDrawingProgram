@@ -1,16 +1,20 @@
-> After the code was already submitted I realise that actually sequence of constructing canvas elements is important. Because of the nature of 'bucket' command, it will perform differently at the different times added to the canvas.
-    For that reason Canvas object must be constructed not with three Sequences of lines, rectangles and buckets, but with the List of the commands. This fix (the second commit) is putting under the question all design, because the router and controller is not so significant anymore, but at least it gives a correct result. Also, I believe it is probably against the rules to change already submitted code.
-    
 The Graffiti
 =
 
- The Graffiti is an SBT Scala project written according to the SpringerNature code problem description.
+### Task
+You're given the task of writing a simple console version of a drawing program. The functionality of the program is quite limited but this might change in the future. The program should work as follows:1. create a new canvas.2. start drawing on the canvas by issuing various commands. 
+3. quit.The program should support the following commands:C w hShould create a new canvas of width w and height h.
+L x1 y1 x2 y2Should create a new line from (x1,y1) to (x2,y2). Currently only horizontal or vertical lines are supported. Horizontal and vertical lines will be drawn using the 'x' character.
+R x1 y1 x2 y2Should create a new rectangle, whose upper left corner is (x1,y1) and lower right corner is (x2,y2). Horizontal and vertical lines will be drawn using the 'x' character.
+B x y cShould fill the entire area connected to (x,y) with colour 'c'. The behaviour of this is the same as that of the "bucket fill" tool in paint programs.
+Q
+Should quit the program.
  
 ### Installation
 
 ```sh
-$ git clone https://github.com/rcerka01/springerNatureCodeProblem.git
-$ cd springerNatureCodeProblem
+$ git clone https://github.com/rcerka01/ConsoleVersionOfDrawingProgram.git
+$ cd ConsoleVersionOfDrawingProgram
 $ sbt run
 ```
 ### Test

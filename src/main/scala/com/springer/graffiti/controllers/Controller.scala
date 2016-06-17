@@ -1,7 +1,8 @@
 package com.springer.graffiti.controllers
 
 import com.springer.graffiti.Input
-import com.springer.graffiti.services.{CommandValidationServices, CanvasServices}
+import com.springer.graffiti.model.Error
+import com.springer.graffiti.services.{CanvasServices, CommandValidationServices}
 import com.springer.graffiti.view.CanvasOutput
 
 /**
@@ -13,44 +14,41 @@ object CommandController extends Controller {
 
 
   def createCanvas(command: Array[String]) = {
-    if (CommandValidationServices.isValidCommandCreateCanvas(command)) {
+    implicit val error: Error = CommandValidationServices.isValidCommandCreateCanvas(command)
+    if (error == null) {
       val canvas = CanvasServices.createCanvasService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
-      Input.run("Enter a new command or 'Q' to exit:")
-    } else {
-      Input.run("Incorrect 'Create Canvas' command (example: C 20 4 for canvas 20x4). Try again or enter 'Q' to exit:")
     }
+    Input.run("Enter a new command or 'Q' to exit:")
   }
 
   def addLine(command: Array[String]) = {
-    if (CommandValidationServices.isValidCommandAddLine(command)) {
+    implicit val error: Error = CommandValidationServices.isValidCommandAddLine(command)
+    if (error == null) {
       val canvas = CanvasServices.addElementService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
-      Input.run("Enter a new command or 'Q' to exit:")
-    } else {
-      Input.run("Incorrect 'Draw Line' command or canvas is not created (example: L 1 2 6 2 for canvas 20x4). Try again or enter 'Q' to exit:")
     }
+    Input.run("Enter a new command or 'Q' to exit:")
   }
 
-
   def addRectangle(command: Array[String]) = {
-    if (CommandValidationServices.isValidCommandAddRectangle(command)) {
+    implicit val error: Error = CommandValidationServices.isValidCommandAddRectangle(command)
+    if (error == null) {
       val canvas = CanvasServices.addElementService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
-      Input.run("Enter a new command or 'Q' to exit:")
-    } else {
-      Input.run("Incorrect 'Draw Rectangle' command or canvas is not created (example: R 16 1 20 3 for canvas 20x4). Try again or enter 'Q' to exit:")
     }
+    Input.run("Enter a new command or 'Q' to exit:")
   }
 
   def addFill(command: Array[String]) = {
-    if (CommandValidationServices.isValidCommandAddFill(command)) {
+    implicit val error: Error = CommandValidationServices.isValidCommandAddFill(command)
+    if (error == null) {
       val canvas = CanvasServices.addElementService(command)
       CanvasOutput.printCanvas(canvas.exportToPrint)
-      Input.run("Enter a new command or 'Q' to exit:")
-    } else {
-      Input.run("Incorrect 'Bucket' command or canvas is not created. (example: B 10 3 o for canvas 20x4). Try again or enter 'Q' to exit:")
     }
+    Input.run("Enter a new command or 'Q' to exit:")
   }
+
+ def terminate(message: String): Unit = CanvasOutput.printMessage(message)
 
 }
